@@ -1,0 +1,65 @@
+name: JupyterLab
+description: 'JupyterLab is a web-based interactive development environment for notebooks,  code, and data. It provides a flexible and extensible user interface with  support for multiple file formats, programming languages, and computational tools.
+
+  '
+image: https://jupyter.org/assets/homepage/main-logo.svg
+tags:
+- jupyter
+- notebooks
+- data science
+- interactive computing
+- python
+- ide
+created: '2024'
+modified: '2024'
+url: https://jupyterlab.readthedocs.io/
+apis:
+- name: JupyterLab Server API
+  description: 'REST API for managing JupyterLab server sessions, kernels, terminals,  and file operations
+
+    '
+  baseURL: http://localhost:8888/api
+  humanURL: https://jupyterlab.readthedocs.io/en/stable/
+  properties:
+  - type: Documentation
+    url: https://jupyterlab.readthedocs.io/en/stable/api/
+  - type: OpenAPI
+    url: https://petstore.swagger.io/v2/swagger.json
+  tags:
+  - kernels
+  - sessions
+  - contents
+  - terminals
+- name: JupyterLab Extension API
+  description: 'JavaScript/TypeScript API for developing JupyterLab extensions and plugins
+
+    '
+  humanURL: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
+  properties:
+  - type: Documentation
+    url: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
+  - type: TypeDoc
+    url: https://jupyterlab.readthedocs.io/en/stable/api/modules.html
+  tags:
+  - extensions
+  - plugins
+  - frontend
+maintainers:
+- name: Project Jupyter
+  email: jupyter@googlegroups.com
+  url: https://jupyter.org
+common:
+- type: GitHub Repository
+  url: https://github.com/jupyterlab/jupyterlab
+- type: Getting Started
+  url: https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
+- type: Installation
+  url: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+- type: User Guide
+  url: https://jupyterlab.readthedocs.io/en/stable/user/index.html
+- type: Community
+  url: https://jupyter.org/community
+- type: Blog
+  url: https://blog.jupyter.org/
+- type: Terms of Service
+  url: https://jupyter.org/governance/conduct/code_of_conduct.html
