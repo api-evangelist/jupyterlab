@@ -1,65 +1,65 @@
+aid: jupyterlab
 name: JupyterLab
-description: 'JupyterLab is a web-based interactive development environment for notebooks,  code, and data. It provides a flexible and extensible user interface with  support for multiple file formats, programming languages, and computational tools.
-
-  '
-image: https://jupyter.org/assets/homepage/main-logo.svg
+description: >-
+  JupyterLab is a web-based interactive development environment for notebooks,
+  code, and data. It provides a flexible and extensible user interface with
+  support for multiple file formats, programming languages, and computational
+  tools.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- jupyter
-- notebooks
-- data science
-- interactive computing
-- python
-- ide
-created: '2024'
-modified: '2024'
-url: https://jupyterlab.readthedocs.io/
+  - Jupyter
+  - Notebooks
+  - Data Science
+  - Interactive Computing
+  - Python
+url: https://raw.githubusercontent.com/api-evangelist/jupyterlab/refs/heads/main/apis.yml
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
-- name: JupyterLab Server API
-  description: 'REST API for managing JupyterLab server sessions, kernels, terminals,  and file operations
-
-    '
-  baseURL: http://localhost:8888/api
-  humanURL: https://jupyterlab.readthedocs.io/en/stable/
-  properties:
-  - type: Documentation
-    url: https://jupyterlab.readthedocs.io/en/stable/api/
-  - type: OpenAPI
-    url: https://petstore.swagger.io/v2/swagger.json
-  tags:
-  - kernels
-  - sessions
-  - contents
-  - terminals
-- name: JupyterLab Extension API
-  description: 'JavaScript/TypeScript API for developing JupyterLab extensions and plugins
-
-    '
-  humanURL: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
-  properties:
-  - type: Documentation
-    url: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
-  - type: TypeDoc
-    url: https://jupyterlab.readthedocs.io/en/stable/api/modules.html
-  tags:
-  - extensions
-  - plugins
-  - frontend
-maintainers:
-- name: Project Jupyter
-  email: jupyter@googlegroups.com
-  url: https://jupyter.org
+  - aid: jupyterlab:jupyterlab-server-api
+    name: JupyterLab Server API
+    description: >-
+      REST API for managing JupyterLab server sessions, kernels, terminals,
+      and file operations.
+    humanURL: https://jupyterlab.readthedocs.io/en/stable/
+    baseURL: http://localhost:8888/api
+    tags:
+      - Kernels
+      - Sessions
+      - Contents
+      - Terminals
+    properties:
+      - type: Documentation
+        url: https://jupyterlab.readthedocs.io/en/stable/api/
+  - aid: jupyterlab:jupyterlab-extension-api
+    name: JupyterLab Extension API
+    description: >-
+      JavaScript/TypeScript API for developing JupyterLab extensions and plugins.
+    humanURL: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
+    tags:
+      - Extensions
+      - Plugins
+      - Frontend
+    properties:
+      - type: Documentation
+        url: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
+      - type: Reference
+        url: https://jupyterlab.readthedocs.io/en/stable/api/modules.html
 common:
-- type: GitHub Repository
-  url: https://github.com/jupyterlab/jupyterlab
-- type: Getting Started
-  url: https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
-- type: Installation
-  url: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
-- type: User Guide
-  url: https://jupyterlab.readthedocs.io/en/stable/user/index.html
-- type: Community
-  url: https://jupyter.org/community
-- type: Blog
-  url: https://blog.jupyter.org/
-- type: Terms of Service
-  url: https://jupyter.org/governance/conduct/code_of_conduct.html
+  - type: Website
+    url: https://jupyterlab.readthedocs.io/
+  - type: Documentation
+    url: https://jupyterlab.readthedocs.io/en/stable/
+  - type: Getting Started
+    url: https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
+  - type: GitHub Organization
+    url: https://github.com/jupyterlab
+  - type: Blog
+    url: https://blog.jupyter.org/
+  - type: Community
+    url: https://jupyter.org/community
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
