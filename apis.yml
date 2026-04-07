@@ -8,10 +8,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Jupyter
-  - Notebooks
   - Data Science
   - Interactive Computing
+  - Jupyter
+  - Notebooks
   - Python
 url: https://raw.githubusercontent.com/api-evangelist/jupyterlab/refs/heads/main/apis.yml
 created: '2024-01-01'
@@ -26,9 +26,9 @@ apis:
     humanURL: https://jupyterlab.readthedocs.io/en/stable/
     baseURL: http://localhost:8888/api
     tags:
+      - Contents
       - Kernels
       - Sessions
-      - Contents
       - Terminals
     properties:
       - type: Documentation
@@ -40,8 +40,8 @@ apis:
     humanURL: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
     tags:
       - Extensions
-      - Plugins
       - Frontend
+      - Plugins
     properties:
       - type: Documentation
         url: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
