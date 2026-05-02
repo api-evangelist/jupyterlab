@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "@vocab": "https://jupyterlab.readthedocs.io/vocab#",
+    "schema": "https://schema.org/",
+    "JupyterLab": "schema:SoftwareApplication",
+    "Workspace": "https://jupyterlab.readthedocs.io/vocab#Workspace",
+    "Setting": "https://jupyterlab.readthedocs.io/vocab#Setting",
+    "Extension": "https://jupyterlab.readthedocs.io/vocab#Extension",
+    "Plugin": "https://jupyterlab.readthedocs.io/vocab#Plugin",
+    "Theme": "https://jupyterlab.readthedocs.io/vocab#Theme",
+    "id": "schema:identifier",
+    "name": "schema:name",
+    "version": "schema:version",
+    "data": "https://jupyterlab.readthedocs.io/vocab#data",
+    "raw": "https://jupyterlab.readthedocs.io/vocab#raw",
+    "schemaDef": "https://jupyterlab.readthedocs.io/vocab#schema",
+    "lastModified": "schema:dateModified",
+    "created": "schema:dateCreated"
+  }
+}

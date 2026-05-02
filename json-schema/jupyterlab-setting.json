@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jupyterlab/main/json-schema/jupyterlab-setting.json",
+  "title": "JupyterLab Plugin Setting",
+  "description": "Schema for a JupyterLab plugin setting document returned from the settings REST API.",
+  "type": "object",
+  "required": ["id", "raw"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Plugin identifier (for example @jupyterlab/apputils-extension:themes)."
+    },
+    "raw": {
+      "type": "string",
+      "description": "Raw JSON5 settings document submitted by the user."
+    },
+    "schema": {
+      "type": "object",
+      "description": "JSON Schema describing valid settings for the plugin."
+    },
+    "settings": {
+      "type": "object",
+      "description": "Effective settings, merged from the user values and the schema defaults."
+    },
+    "version": {
+      "type": "string",
+      "description": "Plugin version associated with the schema."
+    },
+    "last_modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp the setting was last modified."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp the setting was first created."
+    }
+  }
+}

@@ -1,0 +1,227 @@
+openapi: 3.1.0
+info:
+  title: JupyterLab Server REST API
+  description: >-
+    REST API for JupyterLab Server, the set of REST API services that
+    JupyterLab depends on. Provides endpoints for managing user-defined
+    settings, workspaces, themes, translations, third-party license
+    reports, and extension listings. JupyterLab Server runs as a Jupyter
+    Server extension.
+  version: 2.27.0
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  contact:
+    name: Jupyter Project
+    url: https://jupyterlab.readthedocs.io
+    email: jupyter@googlegroups.com
+servers:
+  - url: http://localhost:8888/lab/api
+    description: Local JupyterLab server
+externalDocs:
+  description: JupyterLab Server REST API documentation
+  url: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html
+tags:
+  - name: Settings
+    description: User-defined settings for JupyterLab plugins.
+  - name: Workspaces
+    description: JupyterLab user workspaces.
+  - name: Themes
+    description: Static theme files served to the browser.
+  - name: Translations
+    description: Locale translation bundles.
+  - name: Licenses
+    description: Third-party license reports for installed extensions.
+  - name: Listings
+    description: Extension manager listing data (allowed and blocked extensions).
+paths:
+  /settings:
+    get:
+      operationId: listSettings
+      summary: JupyterLab List all settings
+      description: Returns a bundle of all application settings, suitable for the JupyterLab settings registry.
+      tags:
+        - Settings
+      responses:
+        '200':
+          description: Bundle of all settings.
+  /settings/{schema_name}:
+    get:
+      operationId: getSetting
+      summary: JupyterLab Get setting
+      description: Returns the user-defined settings for a single plugin schema.
+      tags:
+        - Settings
+      parameters:
+        - name: schema_name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Plugin schema identifier (for example @jupyterlab/apputils-extension:themes).
+      responses:
+        '200':
+          description: Settings document for the schema.
+    put:
+      operationId: updateSetting
+      summary: JupyterLab Update setting
+      description: Updates the user-defined settings for a single plugin schema.
+      tags:
+        - Settings
+      parameters:
+        - name: schema_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Setting updated.
+  /workspaces:
+    get:
+      operationId: listWorkspaces
+      summary: JupyterLab List workspaces
+      description: Returns the list of available JupyterLab workspaces for the current user.
+      tags:
+        - Workspaces
+      responses:
+        '200':
+          description: List of workspace identifiers and metadata.
+  /workspaces/{space_name}:
+    get:
+      operationId: getWorkspace
+      summary: JupyterLab Get workspace
+      description: Returns the named workspace, including layout data and metadata.
+      tags:
+        - Workspaces
+      parameters:
+        - name: space_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workspace document.
+    put:
+      operationId: updateWorkspace
+      summary: JupyterLab Update workspace
+      description: Saves the named workspace.
+      tags:
+        - Workspaces
+      parameters:
+        - name: space_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Workspace saved.
+    delete:
+      operationId: deleteWorkspace
+      summary: JupyterLab Delete workspace
+      description: Deletes the named workspace.
+      tags:
+        - Workspaces
+      parameters:
+        - name: space_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Workspace deleted.
+  /themes/{theme_file}:
+    get:
+      operationId: getThemeAsset
+      summary: JupyterLab Get theme asset
+      description: Serves a static theme file from the active JupyterLab theme.
+      tags:
+        - Themes
+      parameters:
+        - name: theme_file
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Theme asset.
+  /translations:
+    get:
+      operationId: listTranslations
+      summary: JupyterLab List translations
+      description: Returns the list of available translation bundles.
+      tags:
+        - Translations
+      responses:
+        '200':
+          description: List of available locales and translation bundle metadata.
+  /translations/{locale}:
+    get:
+      operationId: getTranslation
+      summary: JupyterLab Get translation bundle
+      description: Returns the translation bundle for the requested locale.
+      tags:
+        - Translations
+      parameters:
+        - name: locale
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Translation bundle for the locale.
+  /licenses:
+    get:
+      operationId: getLicenses
+      summary: JupyterLab Get licenses report
+      description: Returns a third-party license report for the installed JupyterLab application and its extensions.
+      tags:
+        - Licenses
+      parameters:
+        - name: bundles
+          in: query
+          schema:
+            type: string
+          description: Comma-separated list of bundles to include in the report.
+        - name: full_text
+          in: query
+          schema:
+            type: boolean
+          description: Whether to include the full text of each license.
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [json, csv, markdown]
+      responses:
+        '200':
+          description: License report.
+  /listings/@jupyterlab/extensionmanager-extension/listings.json:
+    get:
+      operationId: getListings
+      summary: JupyterLab Get extension listings
+      description: Returns the extension manager listings (allowed and blocked extensions).
+      tags:
+        - Listings
+      responses:
+        '200':
+          description: Extension listings document.
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication. Use the form: Authorization: token <token>'
+    xsrf:
+      type: apiKey
+      in: header
+      name: X-XSRFToken
+      description: XSRF token required for browser-based requests.
+security:
+  - token: []

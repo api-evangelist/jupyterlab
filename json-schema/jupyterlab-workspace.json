@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jupyterlab/main/json-schema/jupyterlab-workspace.json",
+  "title": "JupyterLab Workspace",
+  "description": "Schema for a JupyterLab workspace, persisted via the workspaces REST API.",
+  "type": "object",
+  "required": ["data", "metadata"],
+  "properties": {
+    "data": {
+      "type": "object",
+      "description": "Workspace layout data, keyed by JupyterLab plugin identifiers.",
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique workspace identifier."
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the last modification."
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp the workspace was created."
+        }
+      }
+    }
+  }
+}

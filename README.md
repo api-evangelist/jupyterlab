@@ -1,64 +1,77 @@
 # JupyterLab (jupyterlab)
-JupyterLab is a web-based interactive development environment for notebooks,  code, and data. It provides a flexible and extensible user interface with  support for multiple file formats, programming languages, and computational tools.
 
+JupyterLab is the next-generation web-based interactive development environment for notebooks, code, and data. It is served by Jupyter Server and ships with JupyterLab Server, which provides REST APIs for user-defined settings, workspaces, themes, translations, and license reports, alongside the JavaScript and TypeScript extension API used to build JupyterLab plugins.
 
-**URL:** [Visit APIs.json URL](https://jupyterlab.readthedocs.io/)
+**APIs.yml:** [https://raw.githubusercontent.com/api-evangelist/jupyterlab/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/jupyterlab/refs/heads/main/apis.yml)
 
-## Tags:
+## Tags
 
- - jupyter, notebooks, data science, interactive computing, python, ide
+- Data Science
+- Extensions
+- IDE
+- Interactive Computing
+- Notebooks
+- Python
 
 ## Timestamps
 
-- **Created:** 2024 
-- **Modified:** 2024 
+- **Created:** 2024-01-01
+- **Modified:** 2026-04-28
 
 ## APIs
 
-### JupyterLab Server API
-REST API for managing JupyterLab server sessions, kernels, terminals,  and file operations
+### JupyterLab Server REST API
 
+REST API exposed by JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for user settings, workspaces, themes, translations, third-party license reports, and extension manager listings.
 
-**Human URL:** [https://jupyterlab.readthedocs.io/en/stable/](https://jupyterlab.readthedocs.io/en/stable/)
+**Human URL:** https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html
 
+**Base URL:** http://localhost:8888/lab/api
 
-#### Tags:
+#### Tags
 
- - kernels, sessions, contents, terminals
+- Licenses, REST API, Settings, Themes, Translations, Workspaces
 
 #### Properties
 
-- [Documentation](https://jupyterlab.readthedocs.io/en/stable/api/)
-- [OpenAPI](https://petstore.swagger.io/v2/swagger.json)
+- [Documentation](https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html)
+- [Repository](https://github.com/jupyterlab/jupyterlab_server)
+- [OpenAPI](openapi/jupyterlab-server-rest-api-openapi.yml)
+- [JSONSchema](json-schema/jupyterlab-workspace.json)
+- [JSONSchema](json-schema/jupyterlab-setting.json)
+- [JSONLDContext](json-ld/jupyterlab-context.jsonld)
 
 ### JupyterLab Extension API
-JavaScript/TypeScript API for developing JupyterLab extensions and plugins
 
+JavaScript and TypeScript API used to build JupyterLab extensions and plugins. JupyterLab is composed of plugins that consume and provide services on the front-end application object.
 
-**Human URL:** [https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html](https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html)
+**Human URL:** https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
 
+#### Tags
 
-#### Tags:
-
- - extensions, plugins, frontend
+- Extensions, Frontend, JavaScript, Plugins, TypeScript
 
 #### Properties
 
 - [Documentation](https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html)
-- [TypeDoc](https://jupyterlab.readthedocs.io/en/stable/api/modules.html)
+- [Reference](https://jupyterlab.readthedocs.io/en/stable/api/modules.html)
+- [Repository](https://github.com/jupyterlab/jupyterlab)
 
 ## Common Properties
 
-- [GitHub Repository](https://github.com/jupyterlab/jupyterlab)
+- [Website](https://jupyter.org)
+- [Documentation](https://jupyterlab.readthedocs.io/en/stable/)
 - [Getting Started](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
 - [Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)
 - [User Guide](https://jupyterlab.readthedocs.io/en/stable/user/index.html)
-- [Community](https://jupyter.org/community)
+- [GitHub Organization](https://github.com/jupyterlab)
+- [Repository](https://github.com/jupyterlab/jupyterlab)
 - [Blog](https://blog.jupyter.org/)
-- [Terms of Service](https://jupyter.org/governance/conduct/code_of_conduct.html)
+- [Community](https://jupyter.org/community)
+- [Code of Conduct](https://jupyter.org/governance/conduct/code_of_conduct.html)
 
 ## Maintainers
 
-**FN:** Project Jupyter
+**FN:** Kin Lane
 
-**Email:** jupyter@googlegroups.com
+**Email:** kin@apievangelist.com
