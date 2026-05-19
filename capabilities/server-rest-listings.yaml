@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: JupyterLab Server REST API — Listings
+  description: 'JupyterLab Server REST API — Listings. 1 operations. Lead operation: JupyterLab Get extension listings. Self-contained
+    Naftiko capability covering one Jupyterlab business surface.'
+  tags:
+  - Jupyterlab
+  - Listings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    JUPYTERLAB_API_KEY: JUPYTERLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: server-rest-listings
+    baseUri: http://localhost:8888/lab/api
+    description: JupyterLab Server REST API — Listings business capability. Self-contained, no shared references.
+    resources:
+    - name: listings-@jupyterlab-extensionmanager-extension-listings.json
+      path: /listings/@jupyterlab/extensionmanager-extension/listings.json
+      operations:
+      - name: getlistings
+        method: GET
+        description: JupyterLab Get extension listings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.JUPYTERLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: server-rest-listings-rest
+    port: 8080
+    description: REST adapter for JupyterLab Server REST API — Listings. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/listings/jupyterlab/extensionmanager-extension/listings-json
+      name: listings-jupyterlab-extensionmanager-extension-listings-json
+      description: REST surface for listings-@jupyterlab-extensionmanager-extension-listings.json.
+      operations:
+      - method: GET
+        name: getlistings
+        description: JupyterLab Get extension listings
+        call: server-rest-listings.getlistings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: server-rest-listings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for JupyterLab Server REST API — Listings. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: jupyterlab-get-extension-listings
+      description: JupyterLab Get extension listings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-listings.getlistings
+      outputParameters:
+      - type: object
+        mapping: $.

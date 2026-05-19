@@ -1,0 +1,113 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: JupyterLab Server REST API — Translations
+  description: 'JupyterLab Server REST API — Translations. 2 operations. Lead operation: JupyterLab List translations. Self-contained
+    Naftiko capability covering one Jupyterlab business surface.'
+  tags:
+  - Jupyterlab
+  - Translations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    JUPYTERLAB_API_KEY: JUPYTERLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: server-rest-translations
+    baseUri: http://localhost:8888/lab/api
+    description: JupyterLab Server REST API — Translations business capability. Self-contained, no shared references.
+    resources:
+    - name: translations
+      path: /translations
+      operations:
+      - name: listtranslations
+        method: GET
+        description: JupyterLab List translations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: translations-locale
+      path: /translations/{locale}
+      operations:
+      - name: gettranslation
+        method: GET
+        description: JupyterLab Get translation bundle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locale
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.JUPYTERLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: server-rest-translations-rest
+    port: 8080
+    description: REST adapter for JupyterLab Server REST API — Translations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/translations
+      name: translations
+      description: REST surface for translations.
+      operations:
+      - method: GET
+        name: listtranslations
+        description: JupyterLab List translations
+        call: server-rest-translations.listtranslations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/translations/{locale}
+      name: translations-locale
+      description: REST surface for translations-locale.
+      operations:
+      - method: GET
+        name: gettranslation
+        description: JupyterLab Get translation bundle
+        call: server-rest-translations.gettranslation
+        with:
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: server-rest-translations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for JupyterLab Server REST API — Translations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: jupyterlab-list-translations
+      description: JupyterLab List translations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-translations.listtranslations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: jupyterlab-get-translation-bundle
+      description: JupyterLab Get translation bundle
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-translations.gettranslation
+      with:
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.

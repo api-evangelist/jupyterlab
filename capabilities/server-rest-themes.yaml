@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: JupyterLab Server REST API — Themes
+  description: 'JupyterLab Server REST API — Themes. 1 operations. Lead operation: JupyterLab Get theme asset. Self-contained
+    Naftiko capability covering one Jupyterlab business surface.'
+  tags:
+  - Jupyterlab
+  - Themes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    JUPYTERLAB_API_KEY: JUPYTERLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: server-rest-themes
+    baseUri: http://localhost:8888/lab/api
+    description: JupyterLab Server REST API — Themes business capability. Self-contained, no shared references.
+    resources:
+    - name: themes-theme_file
+      path: /themes/{theme_file}
+      operations:
+      - name: getthemeasset
+        method: GET
+        description: JupyterLab Get theme asset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: theme_file
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.JUPYTERLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: server-rest-themes-rest
+    port: 8080
+    description: REST adapter for JupyterLab Server REST API — Themes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/themes/{theme-file}
+      name: themes-theme-file
+      description: REST surface for themes-theme_file.
+      operations:
+      - method: GET
+        name: getthemeasset
+        description: JupyterLab Get theme asset
+        call: server-rest-themes.getthemeasset
+        with:
+          theme_file: rest.theme_file
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: server-rest-themes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for JupyterLab Server REST API — Themes. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: jupyterlab-get-theme-asset
+      description: JupyterLab Get theme asset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-themes.getthemeasset
+      with:
+        theme_file: tools.theme_file
+      outputParameters:
+      - type: object
+        mapping: $.

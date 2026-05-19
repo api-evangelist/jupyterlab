@@ -1,0 +1,92 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: JupyterLab Server REST API — Licenses
+  description: 'JupyterLab Server REST API — Licenses. 1 operations. Lead operation: JupyterLab Get licenses report. Self-contained
+    Naftiko capability covering one Jupyterlab business surface.'
+  tags:
+  - Jupyterlab
+  - Licenses
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    JUPYTERLAB_API_KEY: JUPYTERLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: server-rest-licenses
+    baseUri: http://localhost:8888/lab/api
+    description: JupyterLab Server REST API — Licenses business capability. Self-contained, no shared references.
+    resources:
+    - name: licenses
+      path: /licenses
+      operations:
+      - name: getlicenses
+        method: GET
+        description: JupyterLab Get licenses report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bundles
+          in: query
+          type: string
+          description: Comma-separated list of bundles to include in the report.
+        - name: full_text
+          in: query
+          type: boolean
+          description: Whether to include the full text of each license.
+        - name: format
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.JUPYTERLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: server-rest-licenses-rest
+    port: 8080
+    description: REST adapter for JupyterLab Server REST API — Licenses. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/licenses
+      name: licenses
+      description: REST surface for licenses.
+      operations:
+      - method: GET
+        name: getlicenses
+        description: JupyterLab Get licenses report
+        call: server-rest-licenses.getlicenses
+        with:
+          bundles: rest.bundles
+          full_text: rest.full_text
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: server-rest-licenses-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for JupyterLab Server REST API — Licenses. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: jupyterlab-get-licenses-report
+      description: JupyterLab Get licenses report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-licenses.getlicenses
+      with:
+        bundles: tools.bundles
+        full_text: tools.full_text
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.

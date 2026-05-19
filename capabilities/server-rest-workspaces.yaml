@@ -1,0 +1,181 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: JupyterLab Server REST API — Workspaces
+  description: 'JupyterLab Server REST API — Workspaces. 4 operations. Lead operation: JupyterLab List workspaces. Self-contained
+    Naftiko capability covering one Jupyterlab business surface.'
+  tags:
+  - Jupyterlab
+  - Workspaces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    JUPYTERLAB_API_KEY: JUPYTERLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: server-rest-workspaces
+    baseUri: http://localhost:8888/lab/api
+    description: JupyterLab Server REST API — Workspaces business capability. Self-contained, no shared references.
+    resources:
+    - name: workspaces
+      path: /workspaces
+      operations:
+      - name: listworkspaces
+        method: GET
+        description: JupyterLab List workspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-space_name
+      path: /workspaces/{space_name}
+      operations:
+      - name: getworkspace
+        method: GET
+        description: JupyterLab Get workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: space_name
+          in: path
+          type: string
+          required: true
+      - name: updateworkspace
+        method: PUT
+        description: JupyterLab Update workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: space_name
+          in: path
+          type: string
+          required: true
+      - name: deleteworkspace
+        method: DELETE
+        description: JupyterLab Delete workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: space_name
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.JUPYTERLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: server-rest-workspaces-rest
+    port: 8080
+    description: REST adapter for JupyterLab Server REST API — Workspaces. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/workspaces
+      name: workspaces
+      description: REST surface for workspaces.
+      operations:
+      - method: GET
+        name: listworkspaces
+        description: JupyterLab List workspaces
+        call: server-rest-workspaces.listworkspaces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{space-name}
+      name: workspaces-space-name
+      description: REST surface for workspaces-space_name.
+      operations:
+      - method: GET
+        name: getworkspace
+        description: JupyterLab Get workspace
+        call: server-rest-workspaces.getworkspace
+        with:
+          space_name: rest.space_name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateworkspace
+        description: JupyterLab Update workspace
+        call: server-rest-workspaces.updateworkspace
+        with:
+          space_name: rest.space_name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteworkspace
+        description: JupyterLab Delete workspace
+        call: server-rest-workspaces.deleteworkspace
+        with:
+          space_name: rest.space_name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: server-rest-workspaces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for JupyterLab Server REST API — Workspaces. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: jupyterlab-list-workspaces
+      description: JupyterLab List workspaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-workspaces.listworkspaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: jupyterlab-get-workspace
+      description: JupyterLab Get workspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-rest-workspaces.getworkspace
+      with:
+        space_name: tools.space_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: jupyterlab-update-workspace
+      description: JupyterLab Update workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: server-rest-workspaces.updateworkspace
+      with:
+        space_name: tools.space_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: jupyterlab-delete-workspace
+      description: JupyterLab Delete workspace
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: server-rest-workspaces.deleteworkspace
+      with:
+        space_name: tools.space_name
+      outputParameters:
+      - type: object
+        mapping: $.
