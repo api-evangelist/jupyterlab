@@ -1,0 +1,267 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JupyterLab Server REST API",
+    "version": "2.27.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab List all settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/settings"
+          },
+          "docs": "Returns a bundle of all application settings, suitable for the JupyterLab settings registry."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Get setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/settings/:schema_name",
+            "params": [
+              {
+                "name": "schema_name",
+                "value": "",
+                "type": "path",
+                "description": "Plugin schema identifier (for example @jupyterlab/apputils-extension:themes)."
+              }
+            ]
+          },
+          "docs": "Returns the user-defined settings for a single plugin schema."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Update setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8888/lab/api/settings/:schema_name",
+            "params": [
+              {
+                "name": "schema_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Updates the user-defined settings for a single plugin schema."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab List workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/workspaces"
+          },
+          "docs": "Returns the list of available JupyterLab workspaces for the current user."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Get workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/workspaces/:space_name",
+            "params": [
+              {
+                "name": "space_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the named workspace, including layout data and metadata."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Update workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8888/lab/api/workspaces/:space_name",
+            "params": [
+              {
+                "name": "space_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Saves the named workspace."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Delete workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8888/lab/api/workspaces/:space_name",
+            "params": [
+              {
+                "name": "space_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes the named workspace."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Themes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab Get theme asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/themes/:theme_file",
+            "params": [
+              {
+                "name": "theme_file",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Serves a static theme file from the active JupyterLab theme."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Translations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab List translations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/translations"
+          },
+          "docs": "Returns the list of available translation bundles."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Get translation bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/translations/:locale",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the translation bundle for the requested locale."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Licenses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab Get licenses report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/licenses",
+            "params": [
+              {
+                "name": "bundles",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of bundles to include in the report."
+              },
+              {
+                "name": "full_text",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the full text of each license."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a third-party license report for the installed JupyterLab application and its extensions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab Get extension listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/listings/@jupyterlab/extensionmanager-extension/listings.json"
+          },
+          "docs": "Returns the extension manager listings (allowed and blocked extensions)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

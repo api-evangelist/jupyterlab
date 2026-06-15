@@ -1,0 +1,1083 @@
+{
+  "item": [
+    {
+      "id": "84006205-0b21-43a8-88ac-a92cab0d42c4",
+      "name": "Settings",
+      "description": {
+        "content": "User-defined settings for JupyterLab plugins.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3258b11c-6652-4a5a-b449-745d46c1d779",
+          "name": "JupyterLab List all settings",
+          "request": {
+            "name": "JupyterLab List all settings",
+            "description": {
+              "content": "Returns a bundle of all application settings, suitable for the JupyterLab settings registry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ae3d022-01ef-41a7-b191-ec60ae6dacbc",
+              "name": "Bundle of all settings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd377171-307f-46bc-9304-e4c4c1e039f4",
+          "name": "JupyterLab Get setting",
+          "request": {
+            "name": "JupyterLab Get setting",
+            "description": {
+              "content": "Returns the user-defined settings for a single plugin schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                ":schema_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schema_name",
+                  "description": "(Required) Plugin schema identifier (for example @jupyterlab/apputils-extension:themes)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82085dec-fe62-4c71-9f75-219af9bee5d2",
+              "name": "Settings document for the schema.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    ":schema_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schema_name",
+                      "description": "(Required) Plugin schema identifier (for example @jupyterlab/apputils-extension:themes)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84af6aa8-3e86-4d3e-9fbe-5918850289c8",
+          "name": "JupyterLab Update setting",
+          "request": {
+            "name": "JupyterLab Update setting",
+            "description": {
+              "content": "Updates the user-defined settings for a single plugin schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                ":schema_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schema_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "485525f1-9b1e-48b1-95a4-2627efa4e6ae",
+              "name": "Setting updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    ":schema_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schema_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ece728cd-167f-4336-9170-8c956279e7e1",
+      "name": "Workspaces",
+      "description": {
+        "content": "JupyterLab user workspaces.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd37f836-1123-4098-b6da-f3907c45b3ce",
+          "name": "JupyterLab List workspaces",
+          "request": {
+            "name": "JupyterLab List workspaces",
+            "description": {
+              "content": "Returns the list of available JupyterLab workspaces for the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workspaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00fe7722-10ad-4d4f-b556-c7103d7dcb9e",
+              "name": "List of workspace identifiers and metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d25ccb2b-77b6-4cc3-b2ec-7a227c5c3e7f",
+          "name": "JupyterLab Get workspace",
+          "request": {
+            "name": "JupyterLab Get workspace",
+            "description": {
+              "content": "Returns the named workspace, including layout data and metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workspaces",
+                ":space_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1921a455-2df6-41e7-8d05-afa29e9ca501",
+              "name": "Workspace document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":space_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8489cb82-01f4-4567-ba4c-c9608333e927",
+          "name": "JupyterLab Update workspace",
+          "request": {
+            "name": "JupyterLab Update workspace",
+            "description": {
+              "content": "Saves the named workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workspaces",
+                ":space_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "399fafbf-a98b-4f60-8c78-727a59287b96",
+              "name": "Workspace saved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":space_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b765f293-34d2-461f-9321-0d58bbd2089e",
+          "name": "JupyterLab Delete workspace",
+          "request": {
+            "name": "JupyterLab Delete workspace",
+            "description": {
+              "content": "Deletes the named workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workspaces",
+                ":space_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a5a7d7a-57a3-4c62-b59d-c98106829436",
+              "name": "Workspace deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspaces",
+                    ":space_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5b4a3d2f-b2cd-4409-bf7d-9d82e7b8122c",
+      "name": "Themes",
+      "description": {
+        "content": "Static theme files served to the browser.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f08cf77-8bfb-4c59-a41c-c7ffbe3a38db",
+          "name": "JupyterLab Get theme asset",
+          "request": {
+            "name": "JupyterLab Get theme asset",
+            "description": {
+              "content": "Serves a static theme file from the active JupyterLab theme.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "themes",
+                ":theme_file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "theme_file",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "630a2787-b718-4b0a-b313-e96c979cb236",
+              "name": "Theme asset.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "themes",
+                    ":theme_file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "theme_file",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0856bc8f-4ec7-4397-b819-446894658fba",
+      "name": "Translations",
+      "description": {
+        "content": "Locale translation bundles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2bb3285-ccb1-49dc-ad03-8efaf9b1dad8",
+          "name": "JupyterLab List translations",
+          "request": {
+            "name": "JupyterLab List translations",
+            "description": {
+              "content": "Returns the list of available translation bundles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "898454ae-9e01-4e2c-b35f-f07feb444808",
+              "name": "List of available locales and translation bundle metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6868907-3107-4348-89cf-524e95f5dfed",
+          "name": "JupyterLab Get translation bundle",
+          "request": {
+            "name": "JupyterLab Get translation bundle",
+            "description": {
+              "content": "Returns the translation bundle for the requested locale.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translations",
+                ":locale"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d6e2a08-b0f3-46ff-9c3f-529888e68df6",
+              "name": "Translation bundle for the locale.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translations",
+                    ":locale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "044964ef-f34c-4131-a764-bcf59ed0a806",
+      "name": "Licenses",
+      "description": {
+        "content": "Third-party license reports for installed extensions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a739d62b-711b-4bfc-9ec2-86804c01895d",
+          "name": "JupyterLab Get licenses report",
+          "request": {
+            "name": "JupyterLab Get licenses report",
+            "description": {
+              "content": "Returns a third-party license report for the installed JupyterLab application and its extensions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "licenses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bundles",
+                  "value": "<string>",
+                  "description": "Comma-separated list of bundles to include in the report."
+                },
+                {
+                  "disabled": false,
+                  "key": "full_text",
+                  "value": "<boolean>",
+                  "description": "Whether to include the full text of each license."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "725416ad-4bd7-4202-a0e3-d48082ca10af",
+              "name": "License report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "licenses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bundles",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "full_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "548d839f-8ca6-484f-b6bb-166c5f3f6007",
+      "name": "Listings",
+      "description": {
+        "content": "Extension manager listing data (allowed and blocked extensions).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0da1610f-0778-425a-a108-22aa8b3fc956",
+          "name": "JupyterLab Get extension listings",
+          "request": {
+            "name": "JupyterLab Get extension listings",
+            "description": {
+              "content": "Returns the extension manager listings (allowed and blocked extensions).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "listings",
+                "@jupyterlab",
+                "extensionmanager-extension",
+                "listings.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3ab8725-67a9-4015-bee7-6fc159536166",
+              "name": "Extension listings document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "@jupyterlab",
+                    "extensionmanager-extension",
+                    "listings.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8888/lab/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d8a52a9-ab98-4096-b9df-97bbc346d07f",
+    "name": "JupyterLab Server REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.\n\nContact Support:\n Name: Jupyter Project\n Email: jupyter@googlegroups.com",
+      "type": "text/plain"
+    }
+  }
+}
