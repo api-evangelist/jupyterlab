@@ -6,7 +6,7 @@ description: >-
   workspaces, themes, translations, and license reports, alongside the JavaScript and TypeScript extension API used to
   build JupyterLab plugins.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Data Science
   - Extensions
