@@ -66,6 +66,12 @@ apis:
       - type: Repository
         url: https://github.com/jupyterlab/jupyterlab
 common:
+  - type: VulnerabilityDisclosure
+    url: security/jupyterlab-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/jupyterlab-domain-security.yml
+  - type: Authentication
+    url: authentication/jupyterlab-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/project-jupyter
   - type: Website
