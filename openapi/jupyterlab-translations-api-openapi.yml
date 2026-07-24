@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: JupyterLab Server REST Licenses Translations API
+  description: REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.
+  version: 2.27.0
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  contact:
+    name: Jupyter Project
+    url: https://jupyterlab.readthedocs.io
+    email: jupyter@googlegroups.com
+servers:
+- url: http://localhost:8888/lab/api
+  description: Local JupyterLab server
+security:
+- token: []
+tags:
+- name: Translations
+  description: Locale translation bundles.
+paths:
+  /translations:
+    get:
+      operationId: listTranslations
+      summary: JupyterLab List translations
+      description: Returns the list of available translation bundles.
+      tags:
+      - Translations
+      responses:
+        '200':
+          description: List of available locales and translation bundle metadata.
+  /translations/{locale}:
+    get:
+      operationId: getTranslation
+      summary: JupyterLab Get translation bundle
+      description: Returns the translation bundle for the requested locale.
+      tags:
+      - Translations
+      parameters:
+      - name: locale
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Translation bundle for the locale.
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication. Use the form: Authorization: token <token>'
+    xsrf:
+      type: apiKey
+      in: header
+      name: X-XSRFToken
+      description: XSRF token required for browser-based requests.
+externalDocs:
+  description: JupyterLab Server REST API documentation
+  url: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html

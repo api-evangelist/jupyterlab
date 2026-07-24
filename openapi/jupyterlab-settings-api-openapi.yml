@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: JupyterLab Server REST Licenses Settings API
+  description: REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.
+  version: 2.27.0
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  contact:
+    name: Jupyter Project
+    url: https://jupyterlab.readthedocs.io
+    email: jupyter@googlegroups.com
+servers:
+- url: http://localhost:8888/lab/api
+  description: Local JupyterLab server
+security:
+- token: []
+tags:
+- name: Settings
+  description: User-defined settings for JupyterLab plugins.
+paths:
+  /settings:
+    get:
+      operationId: listSettings
+      summary: JupyterLab List all settings
+      description: Returns a bundle of all application settings, suitable for the JupyterLab settings registry.
+      tags:
+      - Settings
+      responses:
+        '200':
+          description: Bundle of all settings.
+  /settings/{schema_name}:
+    get:
+      operationId: getSetting
+      summary: JupyterLab Get setting
+      description: Returns the user-defined settings for a single plugin schema.
+      tags:
+      - Settings
+      parameters:
+      - name: schema_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Plugin schema identifier (for example @jupyterlab/apputils-extension:themes).
+      responses:
+        '200':
+          description: Settings document for the schema.
+    put:
+      operationId: updateSetting
+      summary: JupyterLab Update setting
+      description: Updates the user-defined settings for a single plugin schema.
+      tags:
+      - Settings
+      parameters:
+      - name: schema_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Setting updated.
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication. Use the form: Authorization: token <token>'
+    xsrf:
+      type: apiKey
+      in: header
+      name: X-XSRFToken
+      description: XSRF token required for browser-based requests.
+externalDocs:
+  description: JupyterLab Server REST API documentation
+  url: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html

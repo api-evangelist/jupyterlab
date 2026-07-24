@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: JupyterLab Server REST Licenses API
+  description: REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.
+  version: 2.27.0
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  contact:
+    name: Jupyter Project
+    url: https://jupyterlab.readthedocs.io
+    email: jupyter@googlegroups.com
+servers:
+- url: http://localhost:8888/lab/api
+  description: Local JupyterLab server
+security:
+- token: []
+tags:
+- name: Licenses
+  description: Third-party license reports for installed extensions.
+paths:
+  /licenses:
+    get:
+      operationId: getLicenses
+      summary: JupyterLab Get licenses report
+      description: Returns a third-party license report for the installed JupyterLab application and its extensions.
+      tags:
+      - Licenses
+      parameters:
+      - name: bundles
+        in: query
+        schema:
+          type: string
+        description: Comma-separated list of bundles to include in the report.
+      - name: full_text
+        in: query
+        schema:
+          type: boolean
+        description: Whether to include the full text of each license.
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          - markdown
+      responses:
+        '200':
+          description: License report.
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication. Use the form: Authorization: token <token>'
+    xsrf:
+      type: apiKey
+      in: header
+      name: X-XSRFToken
+      description: XSRF token required for browser-based requests.
+externalDocs:
+  description: JupyterLab Server REST API documentation
+  url: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html

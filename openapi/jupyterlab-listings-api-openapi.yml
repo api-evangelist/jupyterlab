@@ -1,0 +1,46 @@
+openapi: 3.1.0
+info:
+  title: JupyterLab Server REST Licenses Listings API
+  description: REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.
+  version: 2.27.0
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  contact:
+    name: Jupyter Project
+    url: https://jupyterlab.readthedocs.io
+    email: jupyter@googlegroups.com
+servers:
+- url: http://localhost:8888/lab/api
+  description: Local JupyterLab server
+security:
+- token: []
+tags:
+- name: Listings
+  description: Extension manager listing data (allowed and blocked extensions).
+paths:
+  /listings/@jupyterlab/extensionmanager-extension/listings.json:
+    get:
+      operationId: getListings
+      summary: JupyterLab Get extension listings
+      description: Returns the extension manager listings (allowed and blocked extensions).
+      tags:
+      - Listings
+      responses:
+        '200':
+          description: Extension listings document.
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication. Use the form: Authorization: token <token>'
+    xsrf:
+      type: apiKey
+      in: header
+      name: X-XSRFToken
+      description: XSRF token required for browser-based requests.
+externalDocs:
+  description: JupyterLab Server REST API documentation
+  url: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html

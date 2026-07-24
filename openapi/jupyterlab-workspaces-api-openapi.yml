@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: JupyterLab Server REST Licenses Workspaces API
+  description: REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.
+  version: 2.27.0
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  contact:
+    name: Jupyter Project
+    url: https://jupyterlab.readthedocs.io
+    email: jupyter@googlegroups.com
+servers:
+- url: http://localhost:8888/lab/api
+  description: Local JupyterLab server
+security:
+- token: []
+tags:
+- name: Workspaces
+  description: JupyterLab user workspaces.
+paths:
+  /workspaces:
+    get:
+      operationId: listWorkspaces
+      summary: JupyterLab List workspaces
+      description: Returns the list of available JupyterLab workspaces for the current user.
+      tags:
+      - Workspaces
+      responses:
+        '200':
+          description: List of workspace identifiers and metadata.
+  /workspaces/{space_name}:
+    get:
+      operationId: getWorkspace
+      summary: JupyterLab Get workspace
+      description: Returns the named workspace, including layout data and metadata.
+      tags:
+      - Workspaces
+      parameters:
+      - name: space_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Workspace document.
+    put:
+      operationId: updateWorkspace
+      summary: JupyterLab Update workspace
+      description: Saves the named workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - name: space_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Workspace saved.
+    delete:
+      operationId: deleteWorkspace
+      summary: JupyterLab Delete workspace
+      description: Deletes the named workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - name: space_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Workspace deleted.
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication. Use the form: Authorization: token <token>'
+    xsrf:
+      type: apiKey
+      in: header
+      name: X-XSRFToken
+      description: XSRF token required for browser-based requests.
+externalDocs:
+  description: JupyterLab Server REST API documentation
+  url: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html
