@@ -1,0 +1,24 @@
+{
+  "provider": "jupyterlab",
+  "sources": [
+    "jupyterlab-licenses-api-openapi.yml",
+    "jupyterlab-listings-api-openapi.yml",
+    "jupyterlab-settings-api-openapi.yml",
+    "jupyterlab-themes-api-openapi.yml",
+    "jupyterlab-translations-api-openapi.yml",
+    "jupyterlab-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "jupyterlab-licenses-api-openapi.yml",
+    "jupyterlab-listings-api-openapi.yml",
+    "jupyterlab-settings-api-openapi.yml",
+    "jupyterlab-themes-api-openapi.yml",
+    "jupyterlab-translations-api-openapi.yml",
+    "jupyterlab-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
