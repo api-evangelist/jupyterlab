@@ -172,6 +172,17 @@ apis:
   - type: JSONLDContext
     url: json-ld/jupyterlab-context.jsonld
 common:
+  - type: IssueTracker
+    url: https://github.com/jupyterlab/jupyterlab/issues
+  - type: Releases
+    url: https://github.com/jupyterlab/jupyterlab/releases
+  - type: CodeOfConduct
+    url: https://github.com/jupyterlab/.github/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/jupyterlab/jupyterlab/blob/main/CONTRIBUTING.md
+  - type: License
+    name: BSD-3-Clause
+    url: https://github.com/jupyterlab/jupyterlab/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/jupyterlab-agentic-access.yml
   - type: VulnerabilityDisclosure
