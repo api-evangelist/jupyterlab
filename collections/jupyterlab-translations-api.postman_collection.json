@@ -1,0 +1,203 @@
+{
+  "item": [
+    {
+      "id": "55933ac8-2e77-4708-8c02-907ac450f3e5",
+      "name": "Translations",
+      "description": {
+        "content": "Locale translation bundles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2cd5493-9ba4-460a-bcca-4a26a730bd9a",
+          "name": "JupyterLab List translations",
+          "request": {
+            "name": "JupyterLab List translations",
+            "description": {
+              "content": "Returns the list of available translation bundles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79afcd10-9912-4ce6-8928-d414dba9a891",
+              "name": "List of available locales and translation bundle metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46842ba4-c809-46c2-81a6-c1b9c45d68e4",
+          "name": "JupyterLab Get translation bundle",
+          "request": {
+            "name": "JupyterLab Get translation bundle",
+            "description": {
+              "content": "Returns the translation bundle for the requested locale.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translations",
+                ":locale"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locale",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "798894cf-9884-4cbd-84ff-50f4ce9b17c5",
+              "name": "Translation bundle for the locale.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translations",
+                    ":locale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locale",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8888/lab/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b40e24a4-c28e-4604-9925-e36e5060f0c1",
+    "name": "JupyterLab Server REST Licenses Translations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.\n\nContact Support:\n Name: Jupyter Project\n Email: jupyter@googlegroups.com",
+      "type": "text/plain"
+    }
+  }
+}

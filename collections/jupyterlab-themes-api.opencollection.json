@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JupyterLab Server REST Licenses Themes API",
+    "version": "2.27.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Themes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab Get theme asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/themes/:theme_file",
+            "params": [
+              {
+                "name": "theme_file",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Serves a static theme file from the active JupyterLab theme."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

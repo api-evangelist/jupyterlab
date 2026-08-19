@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JupyterLab Server REST Licenses Translations API",
+    "version": "2.27.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Translations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab List translations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/translations"
+          },
+          "docs": "Returns the list of available translation bundles."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Get translation bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/translations/:locale",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the translation bundle for the requested locale."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

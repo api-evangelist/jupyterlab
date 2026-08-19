@@ -1,0 +1,289 @@
+{
+  "item": [
+    {
+      "id": "b969ac1a-45e4-4994-8740-ee51717497a8",
+      "name": "Settings",
+      "description": {
+        "content": "User-defined settings for JupyterLab plugins.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "810d951c-e2b7-4d1e-bf44-b380869b5bfd",
+          "name": "JupyterLab List all settings",
+          "request": {
+            "name": "JupyterLab List all settings",
+            "description": {
+              "content": "Returns a bundle of all application settings, suitable for the JupyterLab settings registry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c14a3268-0b62-462a-be55-9c7265435cee",
+              "name": "Bundle of all settings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1d30947-c855-4508-83ad-3a007c5c08b9",
+          "name": "JupyterLab Get setting",
+          "request": {
+            "name": "JupyterLab Get setting",
+            "description": {
+              "content": "Returns the user-defined settings for a single plugin schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                ":schema_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schema_name",
+                  "description": "(Required) Plugin schema identifier (for example @jupyterlab/apputils-extension:themes)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de580f84-3cfe-4780-95c3-199c0754bd7b",
+              "name": "Settings document for the schema.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    ":schema_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schema_name",
+                      "description": "(Required) Plugin schema identifier (for example @jupyterlab/apputils-extension:themes)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c983bd4b-e8a8-4c87-acbe-a8f9a4f00275",
+          "name": "JupyterLab Update setting",
+          "request": {
+            "name": "JupyterLab Update setting",
+            "description": {
+              "content": "Updates the user-defined settings for a single plugin schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                ":schema_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schema_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ec9574b-5d59-4fff-a013-055ec5128772",
+              "name": "Setting updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    ":schema_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schema_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8888/lab/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6dc7457-202d-4516-a879-4caff34deda7",
+    "name": "JupyterLab Server REST Licenses Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.\n\nContact Support:\n Name: Jupyter Project\n Email: jupyter@googlegroups.com",
+      "type": "text/plain"
+    }
+  }
+}

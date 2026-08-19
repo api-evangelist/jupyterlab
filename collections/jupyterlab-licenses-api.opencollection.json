@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JupyterLab Server REST Licenses API",
+    "version": "2.27.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Licenses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab Get licenses report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/licenses",
+            "params": [
+              {
+                "name": "bundles",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of bundles to include in the report."
+              },
+              {
+                "name": "full_text",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the full text of each license."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a third-party license report for the installed JupyterLab application and its extensions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

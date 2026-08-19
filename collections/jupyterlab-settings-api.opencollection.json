@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JupyterLab Server REST Licenses Settings API",
+    "version": "2.27.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab List all settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/settings"
+          },
+          "docs": "Returns a bundle of all application settings, suitable for the JupyterLab settings registry."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Get setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/settings/:schema_name",
+            "params": [
+              {
+                "name": "schema_name",
+                "value": "",
+                "type": "path",
+                "description": "Plugin schema identifier (for example @jupyterlab/apputils-extension:themes)."
+              }
+            ]
+          },
+          "docs": "Returns the user-defined settings for a single plugin schema."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Update setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8888/lab/api/settings/:schema_name",
+            "params": [
+              {
+                "name": "schema_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Updates the user-defined settings for a single plugin schema."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

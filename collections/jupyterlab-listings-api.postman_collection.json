@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "e11a45cc-cdf2-4a89-b265-3f62530b7f01",
+      "name": "Listings",
+      "description": {
+        "content": "Extension manager listing data (allowed and blocked extensions).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d8387e5-2a6e-47d1-b374-03f21d01ee48",
+          "name": "JupyterLab Get extension listings",
+          "request": {
+            "name": "JupyterLab Get extension listings",
+            "description": {
+              "content": "Returns the extension manager listings (allowed and blocked extensions).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "listings",
+                "@jupyterlab",
+                "extensionmanager-extension",
+                "listings.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "385b8397-5265-4e6b-9820-1fc114191282",
+              "name": "Extension listings document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "@jupyterlab",
+                    "extensionmanager-extension",
+                    "listings.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8888/lab/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "88b09f20-92a7-418f-96c1-eec54c9a9037",
+    "name": "JupyterLab Server REST Licenses Listings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for managing user-defined settings, workspaces, themes, translations, third-party license reports, and extension listings. JupyterLab Server runs as a Jupyter Server extension.\n\nContact Support:\n Name: Jupyter Project\n Email: jupyter@googlegroups.com",
+      "type": "text/plain"
+    }
+  }
+}

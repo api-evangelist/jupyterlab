@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JupyterLab Server REST Licenses Workspaces API",
+    "version": "2.27.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JupyterLab List workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/workspaces"
+          },
+          "docs": "Returns the list of available JupyterLab workspaces for the current user."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Get workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8888/lab/api/workspaces/:space_name",
+            "params": [
+              {
+                "name": "space_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the named workspace, including layout data and metadata."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Update workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8888/lab/api/workspaces/:space_name",
+            "params": [
+              {
+                "name": "space_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Saves the named workspace."
+        },
+        {
+          "info": {
+            "name": "JupyterLab Delete workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8888/lab/api/workspaces/:space_name",
+            "params": [
+              {
+                "name": "space_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes the named workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
