@@ -153,6 +153,8 @@ apis:
   humanURL: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html
   baseURL: http://localhost:8888/lab/api
   tags:
+  - Translation
+  tags_raw:
   - Translations
   properties:
   - type: OpenAPI
@@ -173,6 +175,8 @@ apis:
   humanURL: https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html
   baseURL: http://localhost:8888/lab/api
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
