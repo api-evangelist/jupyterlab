@@ -1,12 +1,7 @@
 {
   "provider": "jupyterlab",
   "sources": [
-    "jupyterlab-licenses-api-openapi.yml",
-    "jupyterlab-listings-api-openapi.yml",
-    "jupyterlab-settings-api-openapi.yml",
-    "jupyterlab-themes-api-openapi.yml",
-    "jupyterlab-translations-api-openapi.yml",
-    "jupyterlab-workspaces-api-openapi.yml"
+    "_original/jupyterlab-server-rest-api-openapi.yml"
   ],
   "outputs": [
     "jupyterlab-licenses-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "jupyterlab-server-rest-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "jupyterlab-licenses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jupyterlab-listings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jupyterlab-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jupyterlab-themes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jupyterlab-translations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jupyterlab-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
