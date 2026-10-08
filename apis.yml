@@ -195,6 +195,12 @@ apis:
   - type: JSONLDContext
     url: json-ld/jupyterlab-context.jsonld
 common:
+  - type: Plans
+    url: plans/jupyterlab-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/jupyterlab-rate-limits.yml
+  - type: FinOps
+    url: finops/jupyterlab-finops.yml
   - type: IssueTracker
     url: https://github.com/jupyterlab/jupyterlab/issues
   - type: Releases
