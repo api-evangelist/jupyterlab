@@ -1,4 +1,4 @@
-# JupyterLab (jupyterlab)
+# JupyterLab
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,93 +66,148 @@
 
 JupyterLab is the next-generation web-based interactive development environment for notebooks, code, and data. It is served by Jupyter Server and ships with JupyterLab Server, which provides REST APIs for user-defined settings, workspaces, themes, translations, and license reports, alongside the JavaScript and TypeScript extension API used to build JupyterLab plugins.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/jupyterlab/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/jupyterlab/refs/heads/main/apis.yml)
+**Areas:** Data Science · Developer Tools · Extensions · IDE · Interactive Computing · Notebooks · Python
 
-## Scope
+## JupyterLab on APIs.io
 
-- **Type:** Index
+Everything profiled for JupyterLab is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/jupyterlab/](https://apis.io/providers/jupyterlab/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- Data Science
-- Extensions
-- IDE
-- Interactive Computing
-- Notebooks
-- Python
+- [JupyterLab Extension API](https://apis.io/apis/jupyterlab/jupyterlab-extension-api/) — JavaScript and TypeScript API used to build JupyterLab extensions and plugins. JupyterLab is composed of plugins that consume and provide services on the…
+- [JupyterLab Licenses API](https://apis.io/apis/jupyterlab/jupyterlab-licenses-api/) — Third-party license reports for installed extensions.
+- [JupyterLab Listings API](https://apis.io/apis/jupyterlab/jupyterlab-listings-api/) — Extension manager listing data (allowed and blocked extensions).
+- [JupyterLab Settings API](https://apis.io/apis/jupyterlab/jupyterlab-settings-api/) — User-defined settings for JupyterLab plugins.
+- [JupyterLab Themes API](https://apis.io/apis/jupyterlab/jupyterlab-themes-api/) — Static theme files served to the browser.
+- [JupyterLab Translations API](https://apis.io/apis/jupyterlab/jupyterlab-translations-api/) — Locale translation bundles.
+- [JupyterLab Workspaces API](https://apis.io/apis/jupyterlab/jupyterlab-workspaces-api/) — JupyterLab user workspaces.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### JupyterLab Server REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API exposed by JupyterLab Server, the set of REST API services that JupyterLab depends on. Provides endpoints for user settings, workspaces, themes, translations, third-party license reports, and extension manager listings.
+- [Jupyterlab Agentic Access](https://apis.io/agentic-access/jupyterlab/jupyterlab-agentic-access/)
 
-- **Human URL:** [https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html](https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html)
-- **Base URL:** `http://localhost:8888/lab/api`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Licenses
-- REST API
-- Settings
-- Themes
-- Translations
-- Workspaces
+- [JupyterLab Plugin Setting](https://apis.io/schemas/jupyterlab/jupyterlab-setting/)
+- [JupyterLab Workspace](https://apis.io/schemas/jupyterlab/jupyterlab-workspace/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://jupyterlab-server.readthedocs.io/en/stable/api/rest.html)
-- [Repository](https://github.com/jupyterlab/jupyterlab_server)
-- [OpenAPI](openapi/jupyterlab-server-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/jupyterlab-server-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jupyterlab-server-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/jupyterlab-workspace.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/jupyterlab-setting.json) — [JSON Schema](https://json-schema.org/specification)
-- [J S O N L D Context](json-ld/jupyterlab-context.jsonld)
+Linked-data contexts for the provider's vocabulary.
 
-### JupyterLab Extension API
+- [Jupyterlab Context](https://apis.io/jsonld/jupyterlab/jupyterlab-context/)
 
-JavaScript and TypeScript API used to build JupyterLab extensions and plugins. JupyterLab is composed of plugins that consume and provide services on the front-end application object.
+#### Collections (7)
 
-- **Human URL:** [https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html](https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html)
+Postman and Open Collection request collections.
 
-#### Tags
+- [JupyterLab Server REST Licenses API](https://apis.io/collections/jupyterlab/open-jupyterlab-licenses-api/)
+- [JupyterLab Server REST Licenses Listings API](https://apis.io/collections/jupyterlab/open-jupyterlab-listings-api/)
+- [JupyterLab Server REST API](https://apis.io/collections/jupyterlab/open-jupyterlab-server-rest-api/)
+- [JupyterLab Server REST Licenses Settings API](https://apis.io/collections/jupyterlab/open-jupyterlab-settings-api/)
+- [JupyterLab Server REST Licenses Themes API](https://apis.io/collections/jupyterlab/open-jupyterlab-themes-api/)
+- [JupyterLab Server REST Licenses Translations API](https://apis.io/collections/jupyterlab/open-jupyterlab-translations-api/)
+- [JupyterLab Server REST Licenses Workspaces API](https://apis.io/collections/jupyterlab/open-jupyterlab-workspaces-api/)
 
-- Extensions
-- Frontend
-- JavaScript
-- Plugins
-- TypeScript
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html)
-- [Reference](https://jupyterlab.readthedocs.io/en/stable/api/modules.html)
-- [Repository](https://github.com/jupyterlab/jupyterlab)
-- [Postman Collection](collections/jupyterlab-server-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jupyterlab-server-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JupyterLab — jsonschema rules](https://apis.io/rules/jupyterlab/jupyterlab-jsonschema-spectral-rules/)
 
-## Common Properties
+#### Security (3)
 
-- [LinkedIn](https://www.linkedin.com/company/project-jupyter)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Jupyterlab Authentication](https://apis.io/security/jupyterlab/jupyterlab-authentication/)
+- [Jupyterlab Domain Security](https://apis.io/security/jupyterlab/jupyterlab-domain-security/)
+- [Jupyterlab Vulnerability Disclosure](https://apis.io/security/jupyterlab/jupyterlab-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Jupyterlab Plans Pricing](https://apis.io/plans/jupyterlab/jupyterlab-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Jupyterlab Rate Limits](https://apis.io/rate-limits/jupyterlab/jupyterlab-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Jupyterlab Finops](https://apis.io/finops/jupyterlab/jupyterlab-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://jupyter.org)
 - [Documentation](https://jupyterlab.readthedocs.io/en/stable/)
-- [Getting Started](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
-- [Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)
-- [User Guide](https://jupyterlab.readthedocs.io/en/stable/user/index.html)
-- [GitHub Organization](https://github.com/jupyterlab)
-- [Repository](https://github.com/jupyterlab/jupyterlab)
+- [Getting started](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
 - [Blog](https://blog.jupyter.org/)
-- [Community](https://jupyter.org/community)
-- [Code Of Conduct](https://jupyter.org/governance/conduct/code_of_conduct.html)
+- [GitHub](https://github.com/jupyterlab)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 38.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 55.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/jupyterlab/](https://apis.io/providers/jupyterlab/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for JupyterLab: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/jupyterlab/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
